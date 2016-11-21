@@ -60,13 +60,12 @@
 </div>
 
 <div class="article">
-    Wheres where put content
 </div>
 
 <script>
-    $("a").click( function(event){
-        console.log("Link clicked");
-        $( ".article" ).load( $(this).attr("href") );
+    $(".article").load("overview.html");
+    $("a").click(function (event) {
+        $(".article").load($(this).attr("href"));
         event.stopPropagation();
         event.preventDefault();
     });
