@@ -1,0 +1,12 @@
+.nav {
+    float: left;
+    max-width: 170px;
+    margin: 0;
+    padding: 1em;
+}
+.article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
