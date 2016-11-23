@@ -9,9 +9,6 @@
             <a href="overview.html" target="article">Overview</a>
         </li>
         <li>
-            <a href="requests.html">Requests</a>
-        </li>
-        <li>
             <a href="riders.html">Riders</a>
         </li>
         <li>
@@ -19,9 +16,6 @@
         </li>
         <li>
             <a href="rota.html">Rota</a>
-        </li>
-        <li>
-            <a href="vehicles.html">Vehicles</a>
         </li>
         <li>
             <a href="car.html">Car</a>
@@ -65,6 +59,9 @@
         <li>
             <a href="wind.html">Wind</a>
         </li>
+        <li>
+            <a href="requests.html">Requests</a>
+        </li>
     </ol>
 </div>
 
@@ -74,7 +71,11 @@
 <script>
     $(".article").load("overview.html");
     $("a").click(function (event) {
-        $(".article").load($(this).attr("href"));
+        $.ajax({
+            url: $(this).attr("href")+"?x="+ $.now()
+        }).done(function(data) {
+            $(".article").html(data)
+        });
         event.stopPropagation();
         event.preventDefault();
     });
