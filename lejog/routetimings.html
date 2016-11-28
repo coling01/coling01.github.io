@@ -1,1 +1,22 @@
 <h1>Route Timings</h1>
+<p>Put these route timing into a table primarily to drive the Rota page in showing approximate passing timings.</p>
+<table id="timings" border="1">
+</table>
+
+<script>
+    $.ajax({
+        url: "routetimingstable.html?x="+ $.now()
+    }).done(function(data) {
+        $("#timings").html(data);
+    });
+    // Warning ... dont forget this may not run if called from ajax and table above parsed and not executed / inserted
+    function updateDistances(){
+        var total=0;
+        $("#timings tr.timing").each(function(){
+            var thismiles=$(this).find(".miles").html();
+            total+=parseInt(thismiles);
+            $(this).find(".total").html(total);
+        });
+    }
+    updateDistances();
+</script>

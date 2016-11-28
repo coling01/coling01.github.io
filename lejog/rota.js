@@ -1,4 +1,6 @@
 var shifts_array;
+// 48+48+48+24 = 168
+var maxcells = 168;
 
 function populateTable() {
     $("#rota").empty();
@@ -8,14 +10,14 @@ function populateTable() {
     addRidingCells();
     addVanCells();
     addCamperCells();
+    addPlaces();
 }
 
-function addInitialCells(){
-    var shifts=$("#slots").val();
-    console.log("Got shifts:"+shifts)
+function addInitialCells() {
+    var shifts = $("#slots").val();
     shifts_array = shifts.split(',');
 
-    var html='<tr id="dayheader">\
+    var html = '<tr id="dayheader">\
         <th></th>\
         <th colspan="48">Friday</th>\
         <th colspan="48">Saturday</th>\
@@ -66,7 +68,10 @@ function addInitialCells(){
         </tr>\
         <tr id="totalmiles">\
         <td><b>Total Miles</b></td>\
-    </tr>';
+        </tr>\
+        <tr id="towns">\
+        <td><b>Towns</b></td>\
+        </tr>';
     $("#rota").html(html);
 }
 function zeropad(n) {
@@ -88,8 +93,7 @@ function addHeaderCols() {
     }
 }
 function addGrid() {
-    // 48+48+48+24 = 168
-    for (j = 1; j <= 168; j++) {
+    for (j = 1; j <= maxcells; j++) {
         for (k = 1; k <= 4; k++) {
             $("#a" + k).find('td:last').after("<td id=\"a" + k + "_" + j + "\">" + " " + "</td>");
             $("#b" + k).find('td:last').after("<td id=\"b" + k + "_" + j + "\">" + " " + "</td>");
@@ -97,6 +101,7 @@ function addGrid() {
         }
         $("#miles").find('td:last').after("<td id=\"miles_" + j + "\">" + " " + "</td>");
         $("#totalmiles").find('td:last').after("<td id=\"totalmiles_" + j + "\">" + " " + "</td>");
+        $("#towns").find('td:last').after("<td id=\"towns_" + j + "\">" + " " + "</td>");
     }
 }
 
@@ -154,7 +159,7 @@ function setMiles(cellnum, speed) {
             if (thismiles.length > 0 && thismiles != " " && thismiles.length < 3) {
                 totalmiles += parseInt(thismiles);
                 setCell("totalmiles", cellnum, "totalmiles", totalmiles);
-                if(totalmiles>=999){
+                if (totalmiles >= 999) {
                     $("#totalmiles_" + cellnum).addClass("finished");
                 }
             }
@@ -162,9 +167,9 @@ function setMiles(cellnum, speed) {
     );
 }
 function addRidingCells() {
-    var aspeed = $("#aspeed").val()/2;
-    var bspeed = $("#bspeed").val()/2;
-    var cspeed = $("#cspeed").val()/2;
+    var aspeed = $("#aspeed").val() / 2;
+    var bspeed = $("#bspeed").val() / 2;
+    var cspeed = $("#cspeed").val() / 2;
     var cellnum = 1;
     setGroupCells("a", cellnum, "riding")
     setGroupCells("b", cellnum, "riding")
@@ -173,7 +178,7 @@ function addRidingCells() {
     cellnum++;
     for (var i = 0; i < shifts_array.length; i++) {
         var numhours = shifts_array[i];
-        if (numhours == 0 || numhours =="B") {
+        if (numhours == 0 || numhours == "B") {
             setGroupCells("a", cellnum, "break")
             setGroupCells("b", cellnum, "break")
             setGroupCells("c", cellnum, "break")
@@ -215,7 +220,7 @@ function addVanCells() {
     var vannum = 0;
     for (var i = 0; i < shifts_array.length; i++) {
         var numhours = shifts_array[i];
-        if (numhours != 0 && numhours!="B") {
+        if (numhours != 0 && numhours != "B") {
             var driver1 = van_array[vannum];
             var passenger1 = van_array[vannum + 1];
             for (var j = 1; j <= numhours; j++) {
@@ -269,5 +274,40 @@ function addCamperCells() {
         }
         setEmptyToCamper("miles", j);
         setEmptyToCamper("totalmiles", j);
+    }
+}
+
+function addPlaces() {
+    console.log("Doing places...");
+    $.ajax({
+        url: "routetimingstable.html?x=" + $.now()
+    }).done(function (data) {
+        $("#timingstable").html(data);
+
+        $("#timingstable tr.timing").each(function () {
+            var thistown = $(this).find(".town").html();
+            var thismiles = parseInt($(this).find(".miles").html());
+            var thistotal = parseInt($(this).find(".total").html());
+            console.log("Town:" + thistown + " " + thistotal);
+            updateTown(thistown, thistotal);
+        });
+    });
+}
+
+function updateTown(town, mileage) {
+    var towncolspan = 6;
+    for (j = 1; j <= maxcells; j++) {
+        var total = parseInt($("#totalmiles_" + j).html());
+        if (total > mileage) {
+            console.log(total + " is greater than:" + mileage + " so adding town:" + town + " in cell:" + j);
+            $("#towns_" + j).html("&uarr; " + town + " " + mileage);
+            $("#towns_" + j).attr("colspan", towncolspan);
+            for (n = 1; n <= ( towncolspan - 1); n++) {
+                var removecell = j + n;
+                console.log("removing towns_" + removecell)
+                $("#towns_" + removecell).remove();
+            }
+            break;
+        }
     }
 }

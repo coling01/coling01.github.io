@@ -5,8 +5,9 @@
 </head>
 
 <h1>Riders rota tool</h1>
+<p>Assumes that each riding group will complete the same time shifts, which are multiples of 30 minute blocks in grid below</p>
 <p class="medium">a) Adjust the speed of the groups to see effect on the estimated arrival time.</p>
-<p class="medium">b) Increase the duration of the riding slots by amending the numbers in the comma separated string. i.e. Default initial shift is 2*30 minute shifts to for each team</p>
+<p class="medium">b) Increase the duration of the riding slots by amending the numbers in the comma separated string. i.e. Default initial shift is 2*30 minute shifts to for each team, followed by 4*30 minute shifts etc.</p>
 <p class="medium">c) Increase or reduce the amount of Breaks by amending the position or number of "B" in the comma separated string</p>
 <p class="medium">d) See the cumulative miles covered at the bottom ... the magic number is 1000 miles</p>
 <p class="medium">
@@ -75,6 +76,10 @@
         <td>Total Miles</td>
         <td>Total Miles covered so far</td>
     </tr>
+</table>
+
+<h2>Timings Table</h2>
+<table id="timingstable" border="1">
 </table>
 
 <script>
