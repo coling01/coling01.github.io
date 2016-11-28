@@ -5,6 +5,10 @@
 </head>
 
 <h1>Riders rota tool</h1>
+<p class="medium">a) Adjust the speed of the groups to see effect on the estimated arrival time.</p>
+<p class="medium">b) Increase the duration of the riding slots by amending the numbers in the comma separated string. i.e. Default initial shift is 2*30 minute shifts to for each team</p>
+<p class="medium">c) Increase or reduce the amount of Breaks by amending the position or number of "B" in the comma separated string</p>
+<p class="medium">d) See the cumulative miles covered at the bottom ... the magic number is 1000 miles</p>
 <p class="medium">
     <span>A group mph</span>
     <select id="aspeed">
@@ -32,6 +36,9 @@
         <option>13</option>
         <option>14</option>
     </select>
+</p>
+<p>
+    <span class="medium">Shift - Riding 30min slots</span><input class="small wide" id="slots" value="2,4,4,4,2,B,B,B,B,B,B,4,4,4,B,B,B,B,B,B,4,4,4,4,B,B,B,B,B,B,2,1"/>
 </p>
 <p>
     <button class="medium"onclick="populateTable()">Refresh Table</button>

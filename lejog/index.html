@@ -74,12 +74,17 @@
 <script>
     $(".article").load("overview.html");
     $("a").click(function (event) {
-        $.ajax({
-            url: $(this).attr("href")+"?x="+ $.now()
-        }).done(function(data) {
-            $(".article").html(data)
-        });
-        event.stopPropagation();
-        event.preventDefault();
+        if($(this).attr("href") == "rota2.html"){
+
+        }
+        else{
+            $.ajax({
+                url: $(this).attr("href")+"?x="+ $.now()
+            }).done(function(data) {
+                $(".article").html(data)
+            });
+            event.stopPropagation();
+            event.preventDefault();
+        }
     });
 </script>

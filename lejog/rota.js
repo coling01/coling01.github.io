@@ -1,5 +1,4 @@
-var shifts = '2,4,4,4,2,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,4,4,4,4,0,0,0,0,0,0,2,1';
-var shifts_array = shifts.split(',');
+var shifts_array;
 
 function populateTable() {
     $("#rota").empty();
@@ -12,7 +11,10 @@ function populateTable() {
 }
 
 function addInitialCells(){
-    console.log("Resetting initial cells");
+    var shifts=$("#slots").val();
+    console.log("Got shifts:"+shifts)
+    shifts_array = shifts.split(',');
+
     var html='<tr id="dayheader">\
         <th></th>\
         <th colspan="48">Friday</th>\
@@ -27,43 +29,43 @@ function addInitialCells(){
         <td><b>A1</b></td>\
     </tr>\
     <tr id="a2">\
-        <td>A2</td>\
+        <td><b>A2</b></td>\
         </tr>\
         <tr id="a3">\
-        <td>A3</td>\
+        <td><b>A3</b></td>\
         </tr>\
         <tr id="a4">\
-        <td>A4</td>\
+        <td><b>A4</b></td>\
         </tr>\
         <tr id="b1">\
-        <td>B1</td>\
+        <td><b>B1</b></td>\
         </tr>\
         <tr id="b2">\
-        <td>B2</td>\
+        <td><b>B2</b></td>\
         </tr>\
         <tr id="b3">\
-        <td>B3</td>\
+        <td><b>B3</b></td>\
         </tr>\
         <tr id="b4">\
-        <td>B4</td>\
+        <td><b>B4</b></td>\
         </tr>\
         <tr id="c1">\
-        <td>C1</td>\
+        <td><b>C1</b></td>\
         </tr>\
         <tr id="c2">\
-        <td>C2</td>\
+        <td><b>C2</b></td>\
         </tr>\
         <tr id="c3">\
-        <td>C3</td>\
+        <td><b>C3</b></td>\
         </tr>\
         <tr id="c4">\
-        <td>C4</td>\
+        <td><b>C4</b></td>\
         </tr>\
         <tr id="miles">\
-        <td>Miles</td>\
+        <td><b>Miles</b></td>\
         </tr>\
         <tr id="totalmiles">\
-        <td>Total Miles</td>\
+        <td><b>Total Miles</b></td>\
     </tr>';
     $("#rota").html(html);
 }
@@ -171,7 +173,7 @@ function addRidingCells() {
     cellnum++;
     for (var i = 0; i < shifts_array.length; i++) {
         var numhours = shifts_array[i];
-        if (numhours == 0) {
+        if (numhours == 0 || numhours =="B") {
             setGroupCells("a", cellnum, "break")
             setGroupCells("b", cellnum, "break")
             setGroupCells("c", cellnum, "break")
@@ -213,7 +215,7 @@ function addVanCells() {
     var vannum = 0;
     for (var i = 0; i < shifts_array.length; i++) {
         var numhours = shifts_array[i];
-        if (numhours != 0) {
+        if (numhours != 0 && numhours!="B") {
             var driver1 = van_array[vannum];
             var passenger1 = van_array[vannum + 1];
             for (var j = 1; j <= numhours; j++) {

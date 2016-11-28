@@ -1,9 +1,15 @@
+.small {
+    font-size: 1.2em;
+}
+
 .medium {
-     font-size: 1.4em;
- }
+    font-size: 1.4em;
+}
+
 .medium select {
     font-size: 18px;
 }
+
 .nav {
     float: left;
     max-width: 170px;
@@ -36,4 +42,8 @@
 
 .finished {
     background: #42f448;
+}
+
+.wide {
+    min-width: 800px;
 }
