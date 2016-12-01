@@ -3,11 +3,16 @@
 <table id="timings" border="1">
 </table>
 
+<?php
+    echo <p>Hello</p>
+?>
+
 <script>
     $.ajax({
         url: "routetimingstable.html?x="+ $.now()
     }).done(function(data) {
         $("#timings").html(data);
+        updateDistances();
     });
     // Warning ... dont forget this may not run if called from ajax and table above parsed and not executed / inserted
     function updateDistances(){
@@ -17,6 +22,11 @@
             total+=parseInt(thismiles);
             $(this).find(".total").html(total);
         });
+        var down=total;
+        $("#timings tr.timing").each(function(){
+            var thismiles=$(this).find(".miles").html();
+            down-=parseInt(thismiles);
+            $(this).find(".down").html(down);
+        });
     }
-    updateDistances();
 </script>
