@@ -10,7 +10,6 @@ function populateTable() {
     addRidingCells();
     addVanCells();
     addCamperCells();
-    addPlaces();
 }
 
 function addInitialCells() {
@@ -277,18 +276,24 @@ function addCamperCells() {
     }
 }
 
-function addPlaces() {
-    console.log("Doing places...");
+function addPlaces(direction) {
+    jQuery.fn.reverse = [].reverse;
     $.ajax({
         url: "routetimingstable.html?x=" + $.now()
     }).done(function (data) {
         $("#timingstable").html(data);
-
-        $("#timingstable tr.timing").each(function () {
+        if(direction=="reverse") {
+            rows=$("#timingstable tr.timing").reverse();
+            cell="down"
+        }
+        else{
+            rows=$("#timingstable tr.timing");
+            cell="total"
+        }
+        rows.each(function () {
             var thistown = $(this).find(".town").html();
             var thismiles = parseInt($(this).find(".miles").html());
-            var thistotal = parseInt($(this).find(".total").html());
-            console.log("Town:" + thistown + " " + thistotal);
+            var thistotal = parseInt($(this).find("."+cell).html());
             updateTown(thistown, thistotal);
         });
     });
@@ -299,12 +304,10 @@ function updateTown(town, mileage) {
     for (j = 1; j <= maxcells; j++) {
         var total = parseInt($("#totalmiles_" + j).html());
         if (total > mileage) {
-            console.log(total + " is greater than:" + mileage + " so adding town:" + town + " in cell:" + j);
             $("#towns_" + j).html("&uarr; " + town + " " + mileage);
             $("#towns_" + j).attr("colspan", towncolspan);
             for (n = 1; n <= ( towncolspan - 1); n++) {
                 var removecell = j + n;
-                console.log("removing towns_" + removecell)
                 $("#towns_" + removecell).remove();
             }
             break;
