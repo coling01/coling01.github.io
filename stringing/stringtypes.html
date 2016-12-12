@@ -1,0 +1,139 @@
+<h1>String types</h1>
+
+<table id="strings" border="1">
+    <tr>
+        <th>Manufacturer</th>
+        <th>Type</th>
+        <th>Thickness</th>
+        <th>Colour</th>
+        <th>Core</th>
+        <th>Reel Cost</th>
+        <th>Reel Size</th>
+        <th>Num rackets</th>
+        <th>Cost per racket</th>
+    </tr>
+
+    <tr class="string">
+        <td class="manu">Head</td>
+        <td class="type">Perfect power</td>
+        <td class="thickness">1.2mm</td>
+        <td class="colour">White</td>
+        <td class="core">PA 66 multifilament core</td>
+        <td class="reelcost">27</td>
+        <td class="reelsize">110</td>
+        <td class="rackets">error</td>
+        <td class="racketcost">error</td>
+    </tr>
+
+    <tr class="string">
+        <td class="manu">Prince</td>
+        <td class="type">Duraflex</td>
+        <td class="thickness">1.25</td>
+        <td class="colour"></td>
+        <td class="core"></td>
+        <td class="reelcost">32</td>
+        <td class="reelsize">100</td>
+        <td class="rackets">error</td>
+        <td class="racketcost">error</td>
+    </tr>
+
+    <tr class="string">
+        <td class="manu">Ashaway</td>
+        <td class="type">Liberty</td>
+        <td class="colour"></td>
+        <td class="thickness"></td>
+        <td class="core"></td>
+        <td class="reelcost">30</td>
+        <td class="reelsize">110</td>
+        <td class="rackets">error</td>
+        <td class="racketcost">error</td>
+    </tr>
+
+    <tr class="string">
+        <td class="manu">Technifibre</td>
+        <td class="type"></td>
+        <td class="thickness">1.25mm</td>
+        <td class="colour"></td>
+        <td class="core"></td>
+        <td class="reelcost">35</td>
+        <td class="reelsize">200</td>
+        <td class="rackets">error</td>
+        <td class="racketcost">error</td>
+    </tr>
+
+    <tr class="string">
+        <td class="manu">Ashaway</td>
+        <td class="type">Powernick</td>
+        <td class="thickness">1.25mm</td>
+        <td class="colour"></td>
+        <td class="core"></td>
+        <td class="reelcost">100</td>
+        <td class="reelsize">110</td>
+        <td class="rackets">error</td>
+        <td class="racketcost">error</td>
+    </tr>
+
+    <tr class="string">
+        <td class="manu">Technifibre</td>
+        <td class="type">Synthetic Gut</td>
+        <td class="thickness">1.25mm</td>
+        <td class="colour">Gold or Black</td>
+        <td class="core">Synthetic single core</td>
+        <td class="reelcost">35</td>
+        <td class="reelsize">200</td>
+        <td class="rackets">error</td>
+        <td class="racketcost">error</td>
+    </tr>
+
+    <tr class="string">
+        <td class="manu">Technifibre</td>
+        <td class="type">305+ 17</td>
+        <td class="thickness">1.20mm</td>
+        <td class="colour">Black</td>
+        <td class="core">540 multifilaments with elastyl fibre</td>
+        <td class="reelcost">10</td>
+        <td class="reelsize">11</td>
+        <td class="rackets">error</td>
+        <td class="racketcost">error</td>
+    </tr>
+
+    <tr class="string">
+        <td class="manu">Ashaway</td>
+        <td class="type">PowerNick 18</td>
+        <td class="thickness">1.15mm</td>
+        <td class="colour">Red</td>
+        <td class="core">Zyex monofilament</td>
+        <td class="reelcost">13</td>
+        <td class="reelsize">11</td>
+        <td class="rackets">error</td>
+        <td class="racketcost">error</td>
+    </tr>
+
+    <tr class="string">
+        <td class="manu">Ashaway</td>
+        <td class="type">PowerNick 18</td>
+        <td class="thickness">1.15mm</td>
+        <td class="colour">Red</td>
+        <td class="core">Zyex monofilament</td>
+        <td class="reelcost">100</td>
+        <td class="reelsize">110</td>
+        <td class="rackets">error</td>
+        <td class="racketcost">error</td>
+    </tr>
+</table>
+
+<script>
+    $(document).ready(update());
+
+    function update() {
+        console.log("Doing js");
+        $("#strings tr.string").each(function () {
+            var c = parseInt($(this).find("td.reelcost").first().html());
+            var l = parseInt($(this).find("td.reelsize").first().html());
+            var numrackets = Math.round(l / 10 - 0.5);
+            $(this).find(".rackets").html(numrackets);
+            var cpr = Math.round(100 * c / numrackets) / 100;
+            $(this).find(".racketcost").html(cpr);
+        });
+    }
+</script>

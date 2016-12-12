@@ -1,0 +1,49 @@
+.small {
+    font-size: 1.2em;
+}
+
+.medium {
+    font-size: 1.4em;
+}
+
+.medium select {
+    font-size: 18px;
+}
+
+.nav {
+    float: left;
+    max-width: 170px;
+    margin: 0;
+    padding: 1em;
+}
+
+.article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+
+.riding {
+    background: #faa;
+}
+
+.camper, .green {
+    background: #afa;
+}
+
+.car {
+    background: #aaf;
+}
+
+.van {
+    background: #f4f442;
+}
+
+.finished {
+    background: #42f448;
+}
+
+.wide {
+    min-width: 800px;
+}

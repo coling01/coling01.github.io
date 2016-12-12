@@ -1,0 +1,38 @@
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="jq.js"></script>
+</head>
+
+<div class="nav">
+    <ol>
+        <li>
+            <a href="overview.html" target="article">Overview</a>
+        </li>
+        <li>
+            <a href="stringtension.html" target="article">String tension</a>
+        </li>
+        <li>
+            <a href="stringtypes.html" target="article">String types</a>
+        </li>
+    </ol>
+</div>
+
+<div class="article">
+</div>
+
+<script>
+    $("a").click(function (event) {
+        if($(this).attr("href") == "rota2.html" || $(this).attr("href") == "rota3.html"){
+
+        }
+        else{
+            $.ajax({
+                url: $(this).attr("href")+"?x="+ $.now()
+            }).done(function(data) {
+                $(".article").html(data)
+            });
+            event.stopPropagation();
+            event.preventDefault();
+        }
+    });
+</script>
