@@ -9,40 +9,60 @@ Other possibles ...
     </li>
     <li>Hotel??</li>
 </ul>
-<table border="1">
+<table id="costs" border="1">
     <tr>
         <td>Item</td>
         <td>Detail</td>
         <td>Cost</td>
     </tr>
     <tr>
-        <td>Camper Hire</td>
+        <td>Camper1 Hire</td>
         <td>Approx</td>
-        <td>600</td>
+        <td class="cost">600</td>
     </tr>
     <tr>
-        <td>Camper Fuel</td>
+        <td>Camper1 Fuel</td>
         <td>2000 miles at 25 mpg @80 gallon</td>
-        <td>500</td>
+        <td class="cost">500</td>
+    </tr>
+    <tr>
+        <td>Camper2 Hire</td>
+        <td>Approx</td>
+        <td class="cost">600</td>
+    </tr>
+    <tr>
+        <td>Camper2 Fuel</td>
+        <td>2000 miles at 25 mpg @80 gallon</td>
+        <td class="cost">500</td>
     </tr>
     <tr>
         <td>Van Fuel</td>
         <td>2000 miles at 40 mpg @50 gallon</td>
-        <td>300</td>
+        <td class="cost">300</td>
     </tr>
     <tr>
         <td>Food</td>
         <td>approx</td>
-        <td>200</td>
+        <td class="cost">207</td>
     </tr>
     <tr>
         <td>Total</td>
         <td></td>
-        <td>1600</td>
+        <td id="total">Error</td>
     </tr>
     <tr>
         <td>Total Per Person (12)</td>
         <td></td>
-        <td>150</td>
+        <td id="totalpp">Error</td>
     </tr>
 </table>
+
+<script>
+    var total=0;
+    $("#costs .cost").each(function(){
+        total+=parseInt($(this).html());
+    });
+    $("#total").html(total);
+    var totalpp=Math.round(total/12);
+    $("#totalpp").html(totalpp);
+</script>
