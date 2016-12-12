@@ -38,9 +38,13 @@
         <option>14</option>
     </select>
 </p>
-<p>
-    <span class="medium">Shift - Riding 30min slots</span><input class="small wide" id="slots" value="2,4,4,4,2,B,B,B,B,B,B,4,4,4,B,B,B,B,B,B,4,4,4,4,B,B,B,B,B,B,2,1"/>
+<p class="medium">
+    <select id="shift">
+        <option value="2,4,4,4,2,3,4,4,4,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,4,4,4,4,2,2,2,2,1">Single break</option>
+        <option value="2,4,4,4,2,B,B,B,B,B,B,4,4,4,B,B,B,B,B,B,4,4,4,4,B,B,B,B,B,B,2,1">Multiple break</option>
+    </select>
 </p>
+<span class="medium">Shift - Riding 30min slots</span><input class="small wide" id="slots" value="2,4,4,4,2,B,B,B,B,B,B,4,4,4,B,B,B,B,B,B,4,4,4,4,B,B,B,B,B,B,2,1"/>
 <p>
     <button class="medium"onclick="populateTable()">Refresh Table</button>
 </p>
@@ -83,8 +87,13 @@
 </table>
 
 <script>
+    $("#slots").val($("#shift").val());
     populateTable();
-</script>
-<script>
     addPlaces("reverse");
+
+    $("#shift").change(function(){
+        $("#slots").val($("#shift").val());
+        populateTable();
+        addPlaces("reverse");
+    });
 </script>

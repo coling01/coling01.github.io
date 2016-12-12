@@ -13,7 +13,7 @@ function populateTable() {
 }
 
 function addInitialCells() {
-    var shifts = $("#slots").val();
+    var shifts = $("#shift").val();
     shifts_array = shifts.split(',');
 
     var html = '<tr id="dayheader">\
