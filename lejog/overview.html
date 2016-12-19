@@ -1,6 +1,5 @@
 <h1>Overview</h1>
-
-<h1>LeJog Easter 2017</h1>
+<h1><span id="days">d</span><span> days / </span></span><span id="weeks">w</span><span> weeks till LeJog Easter 2017</span></h1>
 
 This page gives brief details of the trip. More details in the relevant pages.
 
@@ -11,26 +10,26 @@ This page gives brief details of the trip. More details in the relevant pages.
 
 <ul>
     <li>
-        Thurs 14th April Approx 16:00 Travel to Start
+        Thurs 13th April Approx 16:00 Travel to Start
     </li>
     <li>
-        Good Friday 15th April Riding
+        Good Friday 14th April Riding
     </li>
     <li>
-        Sat 16th April Riding
+        Sat 15th April Riding
     </li>
     <li>
-        Easter Sunday 17th April Riding
+        Easter Sunday 16th April Riding
     </li>
     <li>
-        Easter Monday 18th April Arrive Destination early morning. Travel back.
+        Easter Monday 17th April Arrive Destination early morning. Travel back.
     </li>
 </ul>
 
 
 <h2>Assumptions</h2>
 <ul>
-    <li>12 riders and maybe 2 support.
+    <li>12 riders. Still hoping for some support, maybe just for half the trip.
     </li>
     <li>3 groups of riders with 3 to 5 riders per group.
     </li>
@@ -53,11 +52,22 @@ This page gives brief details of the trip. More details in the relevant pages.
 <ul>
     <li> Bikes - 4 riders on road
     </li>
-    <li> Camper - General HQ providing food hygiene and logistics. Transport 4 riders plus support.
+    <li> HQ Camper - General HQ providing food hygiene and logistics. Transport 4 riders plus support.
     </li>
     <li> Van - Close support for riders continually leap frogging the riders +-5 miles. Transport 2 riders.
     </li>
-    <li> Car - Heads up the road for sleeping. Transport 2 riders.
+    <li> Sleeper - Camper that heads up the road for sleeping. Transport 2 riders.
     </li>
 </ul>
 
+<script>
+    $(document).ready(function(){
+        var startdate=new Date("04/13/2017");
+        var now=new Date();
+        var gapsecs=(startdate-now)/1000;
+        var gapdays=parseInt(gapsecs/(60*60*24));
+        var gapweeks=parseInt(gapdays/7);
+        $("#days").html(gapdays);
+        $("#weeks").html(gapweeks);
+    });
+</script>
