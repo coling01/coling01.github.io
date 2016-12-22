@@ -2,80 +2,77 @@
     <link rel="stylesheet" href="styles.css">
     <script src="jq.js"></script>
 </head>
-
+<div id="wait"
+     style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;top:50%;left:50%;padding:2px;">
+    <img src='demo_wait.gif' width="64" height="64"/><br>Loading..
+</div>
 <div class="nav">
     <ol>
         <li>
-            <a href="overview.html" target="article">Overview</a>
+            <a href="index.html?overview.html" target="article">Overview</a>
         </li>
         <li>
-            <a href="questions.html">Questions</a>
+            <a href="index.html?questions.html">Questions</a>
         </li>
         <li>
-            <a href="riders.html">Riders</a>
+            <a href="index.html?riders.html">Riders</a>
         </li>
         <li>
-            <a href="speed.html">Speed</a>
+            <a href="index.html?speed.html">Speed</a>
         </li>
         <li>
-            <a href="rota.html">Rota</a>
+            <a href="index.html?rota.html">Rota</a>
         </li>
         <li>
-            <a href="rota2.html">Rota Up</a>
+            <a href="index.html?rota2.html">Rota Up</a>
         </li>
         <li>
-            <a href="rota3.html">Rota Down</a>
+            <a href="index.html?rota3.html">Rota Down</a>
         </li>
         <li>
-            <a href="vehicles.html">Vehicles</a>
+            <a href="index.html?camperhq.html">CamperHQ</a>
         </li>
         <li>
-            <a href="camper.html">Camper</a>
+            <a href="index.html?van.html">Van</a>
         </li>
         <li>
-            <a href="van.html">Van</a>
+            <a href="index.html?sleeper.html">Sleeper</a>
         </li>
         <li>
-            <a href="car.html">Car</a>
+            <a href="index.html?sleep.html">Sleep</a>
         </li>
         <li>
-            <a href="sleep.html">Sleep</a>
+            <a href="index.html?food.html">Food</a>
         </li>
         <li>
-            <a href="food.html">Food</a>
+            <a href="index.html?nutrition.html">Nutrition / Fuel</a>
         </li>
         <li>
-            <a href="nutrition.html">Nutrition / Fuel</a>
+            <a href="index.html?hygiene.html">Hygiene</a>
         </li>
         <li>
-            <a href="hygiene.html">Hygiene</a>
+            <a href="index.html?weather.html">Weather</a>
         </li>
         <li>
-            <a href="weather.html">Weather</a>
+            <a href="index.html?route.html">Route</a>
         </li>
         <li>
-            <a href="route.html">Route</a>
+            <a href="index.html?routetimings.html">Route Timings</a>
         </li>
         <li>
-            <a href="routetimings.html">Route Timings</a>
+            <a href="index.html?costs.html">Costs</a>
         </li>
         <li>
-            <a href="costs.html">Costs</a>
+            <a href="index.html?travel.html">Travel</a>
         </li>
         <li>
-            <a href="travel.html">Travel</a>
+            <a href="index.html?contingency.html">Contingency</a>
         </li>
         <li>
-            <a href="support.html">Support</a>
+            <a href="index.html?wind.html">Wind</a>
         </li>
         <li>
-            <a href="contingency.html">Contingency</a>
-        </li>
-        <li>
-            <a href="wind.html">Wind</a>
-        </li>
-        <li>
-            <a href="requests.html">Requests</a>
+            <a href="index.html?requests.html">Requests</a>
         </li>
     </ol>
 </div>
@@ -84,19 +81,16 @@
 </div>
 
 <script>
-    $(".article").load("overview.html");
-    $("a").click(function (event) {
-        if($(this).attr("href") == "rota2.html" || $(this).attr("href") == "rota3.html"){
-
-        }
-        else{
-            $.ajax({
-                url: $(this).attr("href")+"?x="+ $.now()
-            }).done(function(data) {
-                $(".article").html(data)
-            });
-            event.stopPropagation();
-            event.preventDefault();
-        }
-    });
+    console.log("Loading page:" + document.location);
+    console.log("Got params:" + window.location.search.substring(1))
+    var subpage = window.location.search.substring(1);
+    if (subpage == "") {
+        $(".article").load("overview.html");
+    }
+    else if (subpage == "rota2.html" || subpage == "rota3.html") {
+        document.location.href = subpage;
+    }
+    else {
+        $(".article").load(subpage);
+    }
 </script>

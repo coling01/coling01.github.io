@@ -3,6 +3,7 @@ var shifts_array;
 var maxcells = 168;
 
 function populateTable() {
+    clearTableInputs;
     $("#rota").empty();
     addInitialCells();
     addHeaderCols();
@@ -10,6 +11,7 @@ function populateTable() {
     addRidingCells();
     addVanCells();
     addCamperCells();
+    updateTableInputs();
 }
 
 function addInitialCells() {
@@ -282,18 +284,18 @@ function addPlaces(direction) {
         url: "routetimingstable.html?x=" + $.now()
     }).done(function (data) {
         $("#timingstable").html(data);
-        if(direction=="reverse") {
-            rows=$("#timingstable tr.timing").reverse();
-            cell="down"
+        if (direction == "reverse") {
+            rows = $("#timingstable tr.timing").reverse();
+            cell = "down"
         }
-        else{
-            rows=$("#timingstable tr.timing");
-            cell="total"
+        else {
+            rows = $("#timingstable tr.timing");
+            cell = "total"
         }
         rows.each(function () {
             var thistown = $(this).find(".town").html();
             var thismiles = parseInt($(this).find(".miles").html());
-            var thistotal = parseInt($(this).find("."+cell).html());
+            var thistotal = parseInt($(this).find("." + cell).html());
             updateTown(thistown, thistotal);
         });
     });
@@ -313,4 +315,20 @@ function updateTown(town, mileage) {
             break;
         }
     }
+}
+
+function clearTableInputs() {
+    $("#aset").html("-");
+    $("#bset").html("-");
+    $("#cset").html("-");
+}
+
+function updateTableInputs() {
+    var aspeed = $("#aspeed").val();
+    var bspeed = $("#bspeed").val();
+    var cspeed = $("#cspeed").val();
+
+    $("#aset").html(aspeed);
+    $("#bset").html(bspeed);
+    $("#cset").html(cspeed);
 }
