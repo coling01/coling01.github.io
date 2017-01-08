@@ -1,0 +1,102 @@
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="jq.js"></script>
+    <script src="rota.js"></script>
+</head>
+<div id="wait"
+     style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;top:50%;left:50%;padding:2px;">
+</div>
+<h1>Riders rota tool - John O'Groats to Lands End DOWN</h1>
+<p class="medium">
+    <span>A group mph</span>
+    <select id="aspeed">
+        <optgroup>
+            <option>14</option>
+            <option>15</option>
+            <option selected>16</option>
+            <option>17</option>
+            <option>18</option>
+        </optgroup>
+    </select>
+    <span>B group mph</span>
+    <select id="bspeed">
+        <option>12</option>
+        <option>13</option>
+        <option selected>14</option>
+        <option>15</option>
+        <option>16</option>
+    </select>
+    <span>C group mph</span>
+    <select id="cspeed">
+        <option>10</option>
+        <option>11</option>
+        <option selected>12</option>
+        <option>13</option>
+        <option>14</option>
+    </select>
+</p>
+<p class="medium">
+    <select id="shift">
+        <option value="2,4,4,4,2,3,4,4,4,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,4,4,4,4,2,2,2,2,1">Single break</option>
+        <option value="2,4,4,4,2,B,B,B,B,B,B,4,4,4,B,B,B,B,B,B,4,4,4,4,B,B,B,B,B,B,2,1">Multiple break</option>
+    </select>
+</p>
+<span class="medium">Shift - Riding 30min slots</span><input class="small wide" id="slots" value="2,4,4,4,2,B,B,B,B,B,B,4,4,4,B,B,B,B,B,B,4,4,4,4,B,B,B,B,B,B,2,1"/>
+<p>
+    <button class="medium"onclick="populateTable()">Refresh Table</button>
+</p>
+
+<table id="rota" border="1">
+</table>
+
+<h2>
+    Legend
+</h2>
+<table border="1">
+    <tr>
+        <td class="riding">R</td>
+        <td>Riding</td>
+    </tr>
+    <tr>
+        <td class="van">V</td>
+        <td>Van Supporting Riders</td>
+    </tr>
+    <tr>
+        <td class="camper">C</td>
+        <td>Camper Van</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>Break in riding for all</td>
+    </tr>
+    <tr>
+        <td>Miles</td>
+        <td>Miles covered in each half hour time block</td>
+    </tr>
+    <tr>
+        <td>Total Miles</td>
+        <td>Total Miles covered so far</td>
+    </tr>
+</table>
+
+<h2>Timings Table</h2>
+<table id="timingstable" border="1">
+</table>
+
+<p>Assumes that each riding group will complete the same time shifts, which are multiples of 30 minute blocks in grid below</p>
+<p class="medium">a) Adjust the speed of the groups to see effect on the estimated arrival time.</p>
+<p class="medium">b) Increase the duration of the riding slots by amending the numbers in the comma separated string. i.e. Default initial shift is 2*30 minute shifts to for each team, followed by 4*30 minute shifts etc.</p>
+<p class="medium">c) Increase or reduce the amount of Breaks by amending the position or number of "B" in the comma separated string</p>
+<p class="medium">d) See the cumulative miles covered at the bottom ... the magic number is 1000 miles</p>
+
+<script>
+    $("#slots").val($("#shift").val());
+    populateTable();
+    addPlaces("reverse");
+
+    $("#shift").change(function(){
+        $("#slots").val($("#shift").val());
+        populateTable();
+        addPlaces("reverse");
+    });
+</script>

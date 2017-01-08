@@ -25,12 +25,13 @@
         </li>
         <li>
             <a href="index.html?rota.html">Rota</a>
-        </li>
-        <li>
-            <a href="index.html?rota2.html">Rota Up</a>
-        </li>
-        <li>
-            <a href="index.html?rota3.html">Rota Down</a>
+
+            <div>
+                <a href="index.html?rota-singlebreak.html">Single Break</a>
+            </div>
+            <div>
+                <a href="index.html?rota-multibreak.html">Multi Break</a>
+            </div>
         </li>
         <li>
             <a href="index.html?camperhq.html">CamperHQ</a>
@@ -77,6 +78,9 @@
         <li>
             <a href="index.html?requests.html">Requests</a>
         </li>
+        <li>
+            <a href="index.html?delegation.html">Delegation</a>
+        </li>
     </ol>
 </div>
 
@@ -90,7 +94,7 @@
     if (subpage == "") {
         $(".article").load("overview.html");
     }
-    else if (subpage == "rota2.html" || subpage == "rota3.html") {
+    else if (subpage.indexOf("rota-")==0) {
         document.location.href = subpage;
     }
     else {
