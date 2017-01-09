@@ -94,8 +94,10 @@
 </div>
 
 <script>
-    console.log("Loading page:" + document.location);
-    console.log("Got params:" + window.location.search.substring(1))
+    $.ajaxSetup ({
+        cache: false
+    });
+
     var subpage = window.location.search.substring(1);
     if (subpage == "") {
         $(".article").load("overview.html");
