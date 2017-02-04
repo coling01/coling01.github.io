@@ -24,6 +24,10 @@
     overflow: hidden;
 }
 
+.right {
+    float: right;
+}
+
 .riding {
     background: #faa;
 }
