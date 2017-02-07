@@ -12,16 +12,13 @@
             <a href="index.html?overview.html" target="article">Overview</a>
         </li>
         <li>
-            <div>Questions</div>
-            <div>
-                <a href="index.html?rider-questions.html">Rider Questions</a>
-            </div>
-        </li>
-        <li>
             <a href="index.html?charity.html">Charity</a>
         </li>
         <li>
             <a href="index.html?riders.html">Riders</a>
+        </li>
+        <li>
+            <a href="index.html?rider-questions.html">Rider Questions</a>
         </li>
         <li>
             <a href="index.html?camperspec.html">Camper Spec</a>
@@ -90,6 +87,9 @@
         <li>
             <a href="index.html?delegation.html">Delegation</a>
         </li>
+        <li>
+            <a href="index.html?camperquotes.html">Camper Quotes</a>
+        </li>
     </ol>
 </div>
 
@@ -97,7 +97,7 @@
 </div>
 
 <script>
-    $.ajaxSetup ({
+    $.ajaxSetup({
         cache: false
     });
 
@@ -105,7 +105,7 @@
     if (subpage == "") {
         $(".article").load("overview.html");
     }
-    else if (subpage.indexOf("rota-")==0) {
+    else if (subpage.indexOf("rota-") == 0) {
         document.location.href = subpage;
     }
     else {
