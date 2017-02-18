@@ -1,6 +1,6 @@
 <h1>Costs</h1>
 
-<h2>Approximate costs at 23/01/2016</h2>
+<h2>Approximate costs at 18/02/2016</h2>
 Other possibles ...
 <ul>
     <li>
@@ -62,12 +62,112 @@ Other possibles ...
     </tr>
 </table>
 
+<h2>Actual Costs</h2>
+<table id="spent" border="1">
+    <tr>
+        <th>Date</th>
+        <th>Item</th>
+        <th>Amount</th>
+    </tr>
+    <tr>
+        <td>15/12/2016</td>
+        <td>Camper1 deposit</td>
+        <td class="cost">250</td>
+    </tr>
+    <tr>
+        <td>15/12/2016</td>
+        <td>Camper2 deposit</td>
+        <td class="cost">250</td>
+    </tr>
+    <tr>
+        <td>18/02/2017</td>
+        <td>Camper1 balance</td>
+        <td class="cost">315</td>
+    </tr>
+    <tr>
+        <td>18/02/2017</td>
+        <td>Camper2 balance</td>
+        <td class="cost">315</td>
+    </tr>
+
+    <tr>
+        <td>&nbsp;</td>
+        <td>Total Spent To Date</td>
+        <td id="totalspent"></td>
+    </tr>
+</table>
+<h2>Payments</h2>
+<table border="1">
+    <tr>
+        <th>Rider</th>
+        <th>Paid</th>
+    </tr>
+    <tr>
+        <td>Colin</td>
+        <td>150</td>
+    </tr>
+    <tr>
+        <td>Mike</td>
+        <td>150</td>
+    </tr>
+    <tr>
+        <td>Stu</td>
+        <td>150</td>
+    </tr>
+    <tr>
+        <td>Tony</td>
+        <td>150</td>
+    </tr>
+    <tr>
+        <td>TimO</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>TimN</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Seens</td>
+        <td>150</td>
+    </tr>
+    <tr>
+        <td>Matt</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Dan</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Paul</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Bri</td>
+        <td>150</td>
+    </tr>
+    <tr>
+        <td>Merv</td>
+        <td>150</td>
+    </tr>
+    <tr>
+        <td>Vin</td>
+        <td>150</td>
+    </tr>
+</table>
 <script>
-    var total=0;
-    $("#costs .cost").each(function(){
-        total+=parseInt($(this).html());
+    var total = 0;
+    $("#costs .cost").each(function () {
+        total += parseInt($(this).html());
     });
     $("#total").html(total);
-    var totalpp=Math.round(total/13);
+    var totalpp = Math.round(total / 13);
     $("#totalpp").html(totalpp);
+
+    var totalspent = 0;
+    $("#spent .cost").each(function () {
+        totalspent += parseInt($(this).html());
+    });
+    $("#totalspent").html(totalspent);
+
 </script>

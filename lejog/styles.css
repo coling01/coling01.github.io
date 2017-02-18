@@ -32,12 +32,16 @@
     background: #faa;
 }
 
-.camper, .green {
+.sleeper, .green {
     background: #afa;
 }
 
 .car {
     background: #aaf;
+}
+
+.hq {
+    background: #f4cd59;
 }
 
 .van {
