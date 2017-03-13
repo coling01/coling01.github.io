@@ -97,62 +97,66 @@ Other possibles ...
     </tr>
 </table>
 <h2>Payments</h2>
-<table border="1">
+<table id="incoming" border="1">
     <tr>
         <th>Rider</th>
         <th>Paid</th>
     </tr>
     <tr>
         <td>Colin</td>
-        <td>150</td>
+        <td class="moneyin">150</td>
     </tr>
     <tr>
         <td>Mike</td>
-        <td>150</td>
+        <td class="moneyin">150</td>
     </tr>
     <tr>
         <td>Stu</td>
-        <td>150</td>
+        <td class="moneyin">150</td>
     </tr>
     <tr>
         <td>Tony</td>
-        <td>150</td>
+        <td class="moneyin">150</td>
     </tr>
     <tr>
         <td>TimO</td>
-        <td></td>
+        <td class="moneyin"></td>
     </tr>
     <tr>
         <td>TimN</td>
-        <td></td>
+        <td class="moneyin"></td>
     </tr>
     <tr>
         <td>Seens</td>
-        <td>150</td>
+        <td class="moneyin">150</td>
     </tr>
     <tr>
         <td>Matt</td>
-        <td></td>
+        <td class="moneyin"></td>
     </tr>
     <tr>
         <td>Dan</td>
-        <td></td>
+        <td class="moneyin"></td>
     </tr>
     <tr>
         <td>Paul</td>
-        <td></td>
+        <td class="moneyin"></td>
     </tr>
     <tr>
         <td>Bri</td>
-        <td>150</td>
+        <td class="moneyin">150</td>
     </tr>
     <tr>
         <td>Merv</td>
-        <td>150</td>
+        <td class="moneyin">150</td>
     </tr>
     <tr>
         <td>Vin</td>
-        <td>150</td>
+        <td class="moneyin">150</td>
+    </tr>
+    <tr>
+        <td>Total In</td>
+        <td id="totalin"></td>
     </tr>
 </table>
 <script>
@@ -170,4 +174,12 @@ Other possibles ...
     });
     $("#totalspent").html(totalspent);
 
+    var totalin = 0;
+    $("#incoming .moneyin").each(function () {
+        var thisin=$(this).html();
+        if( typeof(thisin) !== 'undefined' && thisin!=="") {
+            totalin += parseInt(thisin);
+        }
+    });
+    $("#totalin").html(totalin);
 </script>
