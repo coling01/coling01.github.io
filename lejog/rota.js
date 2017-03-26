@@ -29,8 +29,8 @@ function addInitialCells() {
         </tr>\
         <tr id="a1">\
         <td><b>AHQ</b></td>\
-    </tr>\
-    <tr id="a2">\
+        </tr>\
+        <tr id="a2">\
         <td><b>AS</b></td>\
         </tr>\
         <tr id="a3">\
@@ -152,11 +152,11 @@ function getNoneBlankCell(rider, cellnum) {
 function setGroupCells(group, cellnum, celltype) {
     setCell(group + "1", cellnum, celltype);
     setCell(group + "2", cellnum, celltype);
-    if(celltype=="hq"){
+    if (celltype == "hq") {
         setCell(group + "3", cellnum, "van");
         setCell(group + "4", cellnum, "van");
     }
-    else{
+    else {
         setCell(group + "3", cellnum, celltype);
         setCell(group + "4", cellnum, celltype);
     }
@@ -167,7 +167,7 @@ function setMiles(cellnum, speed) {
     $("#miles").find("td").each(function () {
             var thismiles = $(this).html();
             if (thismiles.length > 0 && thismiles != " " && thismiles.length < 4) {
-                totalmiles += Math.round(thismiles*10)/10;
+                totalmiles += Math.round(thismiles * 10) / 10;
                 setCell("totalmiles", cellnum, "totalmiles", totalmiles);
                 if (totalmiles >= 999) {
                     $("#totalmiles_" + cellnum).addClass("finished");
@@ -176,7 +176,7 @@ function setMiles(cellnum, speed) {
         }
     );
 }
-function setAllCells(){
+function setAllCells() {
     // Each rider goes ride ... rest ... hq/van
     // With offset for starting
     var aspeed = $("#aspeed").val() / 2;
@@ -262,7 +262,7 @@ function addPlaces(direction) {
 
 function updateTown(town, mileage) {
     var towncolspan = 4;
-    if(town.length>10){
+    if (town.length > 10) {
         var towncolspan = 6;
     }
     for (j = 1; j <= maxcells; j++) {
