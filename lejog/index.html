@@ -7,96 +7,55 @@
   <img src='demo_wait.gif' width="64" height="64"/><br>Loading..
 </div>
 <div class="nav">
-  <ol>
-    <li>
-      <a href="index.html?overview.html" target="article">Overview</a>
-    </li>
-    <li>
-      <a href="index.html?charity.html">Charity</a>
-    </li>
-    <li>
-      <a href="index.html?riders.html">Riders</a>
-    </li>
-    <li>
-      <a href="index.html?kitlist.html">Kit List</a>
-    </li>
-    <li>
-      <a href="index.html?rider-questions.html">Questions</a>
-    </li>
-    <li>
-      <a href="index.html?requests.html">Requests</a>
-    </li>
-    <li>
-      <div>
-        <a href="index.html?camperhq.html">Camper HQ</a>
-      </div>
-      <div>
-        <a href="index.html?sleeper.html">Sleeper</a>
-      </div>
-      <div>
-        <a href="index.html?camperspec.html">Camper Spec</a>
-      </div>
-      <div>
-        <a href="index.html?camper-questions.html">Camper Questions</a>
-      </div>
-    </li>
-    <li>
-      <a href="index.html?speed.html">Speed</a>
-    </li>
-    <li>
-      <a href="index.html?rota.html">Rota</a>
-      <div>
-        <a href="index.html?rota-fastnobreak.html">Fast No Break</a>
-      </div>
-      <div>
-        <a href="index.html?rota-mediumnobreak.html">Medium No Break</a>
-      </div>
-      <div>
-        <a href="index.html?rota-slownobreak.html">Slow No Break</a>
-      </div>
-    </li>
-    <li>
-      <a href="index.html?sleep.html">Sleep</a>
-    </li>
-    <li>
-      <a href="index.html?food.html">Food</a>
-    </li>
-    <li>
-      <a href="index.html?nutrition.html">Nutrition / Fuel</a>
-    </li>
-    <li>
-      <a href="index.html?hygiene.html">Hygiene</a>
-    </li>
-    <li>
-      <a href="index.html?weather.html">Weather</a>
-    </li>
-    <li>
-      <a href="index.html?route.html">Route</a>
-    </li>
-    <li>
-      <a href="index.html?routetimings.html">Route Timings</a>
-    </li>
-    <li>
-      <a href="index.html?costs.html">Costs</a>
-    </li>
-    <li>
-      <a href="index.html?travel.html">Travel</a>
-    </li>
-    <li>
-      <a href="index.html?contingency.html">Contingency</a>
-    </li>
-    <li>
-      <a href="index.html?wind.html">Wind</a>
-    </li>
-    <li>
-      <a href="index.html?delegation.html">Delegation</a>
-    </li>
-    <li>
-      <a href="index.html?camperquotes.html">Camper Quotes</a>
-    </li>
-  </ol>
-</div>
+  <h2 class="accordion" href="overview.html">Overview</h2>
+  <div class="subheadings">
+    <div class="link" href="charity.html">Charity</div>
+    <div class="link" href="riders.html">Riders</div>
+  </div>
 
+  <h2 class="accordion" href="route.html">The route</h2>
+  <div class="subheadings">
+    <div class="link" href="speed.html">Speed</div>
+    <div class="link" href="rota.html">Rota</div>
+    <div class="link" href="routetimings.html">Route Timings</div>
+  </div>
+
+
+  <h2 class="accordion" href="camperhq.html">The Plan</h2>
+  <div class="subheadings">
+    <div class="link" href="kitlist.html">Kit List</div>
+    <div class="link" href="sleep.html">Sleep</div>
+    <div class="link" href="food.html">Food</div>
+  </div>
+
+  <h2 class="accordion" href="camperhq.html">Vehicles</h2>
+  <div class="subheadings">
+    <div class="link" href="sleeper.html">Sleeper</div>
+    <div class="link" href="camperspec.html">Camper Spec</div>
+    <div class="link" href="camper-questions.html">Camper Questions</div>
+  </div>
+
+
+  <h2 class="accordion" href="camperhq.html">Misc</h2>
+  <div class="subheadings">
+    <div class="link" href="rider-questions.html">Questions</div>
+    <div class="link" href="requests.html">Requests</div>
+    <div class="link" href="speed.html">Speed</div>
+    <div class="link" href="rota.html">Rota</div>
+    <div class="link" href="rota-fastnobreak.html">Fast No Break</div>
+    <div class="link" href="rota-mediumnobreak.html">Medium No Break</div>
+    <div class="link" href="rota-slownobreak.html">Slow No Break</div>
+    <div class="link" href="nutrition.html">Nutrition / Fuel</div>
+    <div class="link" href="hygiene.html">Hygiene</div>
+    <div class="link" href="weather.html">Weather</div>
+    <div class="link" href="costs.html">Costs</div>
+    <div class="link" href="travel.html">Travel</div>
+    <div class="link" href="contingency.html">Contingency</div>
+    <div class="link" href="wind.html">Wind</div>
+    <div class="link" href="delegation.html">Delegation</div>
+    <div class="link" href="camperquotes.html">Camper Quotes</div>
+  </div>
+</div>
 <div class="article">
 </div>
 
@@ -104,15 +63,32 @@
   $.ajaxSetup({
     cache: false
   });
+  $("div.subheadings").hide();
 
   var subpage = window.location.search.substring(1);
+  console.log("Loading subpage:" + subpage)
   if (subpage == "") {
+    console.log("article load1")
     $(".article").load("overview.html");
   }
   else if (subpage.indexOf("rota-") == 0) {
+    console.log("page change to:" + subpage)
     document.location.href = subpage;
   }
   else {
+    console.log("article load2:" + subpage)
     $(".article").load(subpage);
   }
+
+  $(".accordion").click(function (event) {
+    $("div.subheadings").hide();
+    $(this).next().show();
+    var subpage = $(this).attr("href");
+    $(".article").load(subpage);
+  });
+
+  $(".link").click(function (event) {
+    var subpage = $(this).attr("href");
+    $(".article").load(subpage);
+  });
 </script>
