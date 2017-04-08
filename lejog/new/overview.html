@@ -1,0 +1,63 @@
+<h1>Overview</h1>
+<h1><span id="days">d</span><span> days / </span></span><span
+        id="weeks">w</span><span> weeks till JogLe Easter 2017</span></h1>
+
+This page gives brief details of the trip. More details in the relevant pages.
+
+<p>
+  We will ride from JohnOGroats to LandsEnd over 3 days of Easter weekend in a continuous relay.
+  3 groups of riders, each group between 3 and 5 riders, grouped by speed.
+</p>
+
+<ul>
+  <li>
+    Thurs 13th April Approx 16:00 Travel to Start
+  </li>
+  <li>
+    Good Friday 14th April Riding
+  </li>
+  <li>
+    Sat 15th April Riding
+  </li>
+  <li>
+    Easter Sunday 16th April Riding
+  </li>
+  <li>
+    Easter Monday 17th April Arrive Destination early morning. Early evening travel back up North.
+  </li>
+</ul>
+
+
+<h2>Assumptions</h2>
+<ul>
+  <li>12 riders which is the maximum we can transport in 2 Campers.
+  </li>
+  <li>3 groups of riders with 3 to 5 riders per group.
+  </li>
+  <li>
+    Rotations will be a) Ride b) Rest c) Support ... repeat.
+  </li>
+  <li>Begin Jog 01:00 Friday morning. Arrive Le 09:00 Monday morning which gives us 80 hours to cover the
+    distance.
+  </li>
+  <li>1000 miles over 80 hours means a target average speed of 12mph. Its not flat with approximately 1000 feet of climbing per 20 miles.
+  </li>
+  <li>
+    The shift duration needs discussion and agreement but expected to be between 1 hour and 4 hours. Maybe we have
+    shorter shifts during the day to allow more socialising and longer shifts during the night to allow more sleep.
+  </li>
+  <li>Still a little worried about the wind so hedging in case we need to switch direction. Will discuss and decide in the week
+    leading up to the event.
+</ul>
+
+<script>
+  $(document).ready(function () {
+    var startdate = new Date("04/13/2017");
+    var now = new Date();
+    var gapsecs = (startdate - now) / 1000;
+    var gapdays = parseInt(gapsecs / (60 * 60 * 24));
+    var gapweeks = parseInt(gapdays / 7);
+    $("#days").html(gapdays);
+    $("#weeks").html(gapweeks);
+  });
+</script>

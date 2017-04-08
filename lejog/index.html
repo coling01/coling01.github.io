@@ -7,37 +7,53 @@
   <img src='demo_wait.gif' width="64" height="64"/><br>Loading..
 </div>
 <div class="nav">
-  <h2 class="accordion" href="overview.html">Overview</h2>
+  <h2 class="accordion" href="new/overview.html">Overview</h2>
   <div class="subheadings">
-    <div class="link" href="charity.html">Charity</div>
-    <div class="link" href="riders.html">Riders</div>
+    <div class="link" href="new/charity.html">Charity</div>
+    <div class="link" href="new/riderroles.html">Support Roles</div>
+    <div class="link" href="new/riders.html">Riders</div>
   </div>
 
-  <h2 class="accordion" href="route.html">The route</h2>
+  <h2 class="accordion" href="new/route.html">The route</h2>
   <div class="subheadings">
-    <div class="link" href="speed.html">Speed</div>
-    <div class="link" href="rota.html">Rota</div>
-    <div class="link" href="routetimings.html">Route Timings</div>
+    <div class="link" href="new/direction.html">Direction ... JOGLE likely</div>
+    <div class="link" href="new/routetimings.html">Route Distances</div>
+    <div class="link" href="new/speed.html">Speed</div>
+    <div class="link" href="new/rota.html">Rota</div>
   </div>
 
 
-  <h2 class="accordion" href="camperhq.html">The Plan</h2>
+  <h2 class="accordion" href="new/theplan.html">The Plan</h2>
+  <div class="subheadings">
+    <div class="link" href="new/meetup.html">Meetup Thurs</div>
+    <div class="link" href="new/traveltostart.html">Travel to start</div>
+    <div class="link" href="new/firstshift.html">First shift</div>
+    <div class="link" href="new/transition.html">Shift transition</div>
+    <div class="link" href="new/secondshift.html">Second shift</div>
+    <div class="link" href="new/thirdshift.html">Third shift</div>
+
+    <div class="link" href="new/travelfromfinish.html">Travel from finish</div>
+  </div>
+
+  <h2 class="accordion" href="new/camperhq.html">Vehicles</h2>
+  <div class="subheadings">
+    <div class="link" href="new/sleeper.html">Sleeper</div>
+    <div class="link" href="new/camperspec.html">Camper Spec</div>
+    <div class="link" href="new/camper-questions.html">Camper Questions</div>
+  </div>
+
+  <h2 class="accordion" href="new/checklists.html">Checklists</h2>
+  <div class="subheadings">
+    <div class="link" href="new/riderchecklist.html">Riders checklist</div>
+    <div class="link" href="new/tools.html">Tools</div>
+    <div class="link" href="new/spares.html">Spares</div>
+  </div>
+
+  <h2 class="accordion" href="camperhq.html">Misc - To Tidy</h2>
   <div class="subheadings">
     <div class="link" href="kitlist.html">Kit List</div>
     <div class="link" href="sleep.html">Sleep</div>
     <div class="link" href="food.html">Food</div>
-  </div>
-
-  <h2 class="accordion" href="camperhq.html">Vehicles</h2>
-  <div class="subheadings">
-    <div class="link" href="sleeper.html">Sleeper</div>
-    <div class="link" href="camperspec.html">Camper Spec</div>
-    <div class="link" href="camper-questions.html">Camper Questions</div>
-  </div>
-
-
-  <h2 class="accordion" href="camperhq.html">Misc</h2>
-  <div class="subheadings">
     <div class="link" href="rider-questions.html">Questions</div>
     <div class="link" href="requests.html">Requests</div>
     <div class="link" href="speed.html">Speed</div>
@@ -60,6 +76,10 @@
 </div>
 
 <script>
+  function error(){
+    $(".article").load("new/wip.html");
+  }
+
   $.ajaxSetup({
     cache: false
   });
@@ -69,7 +89,16 @@
   console.log("Loading subpage:" + subpage)
   if (subpage == "") {
     console.log("article load1")
-    $(".article").load("overview.html");
+    $(".article")
+    //            .load("overview.html")
+    //            .error(function(){
+    //               alert("error loading page");
+    //            });
+            .load("overview.html", function (response, status, xhr) {
+              if (status == "error") {
+                error();
+              }
+            })
   }
   else if (subpage.indexOf("rota-") == 0) {
     console.log("page change to:" + subpage)
@@ -77,18 +106,30 @@
   }
   else {
     console.log("article load2:" + subpage)
-    $(".article").load(subpage);
+    $(".article").load(subpage, function (response, status, xhr) {
+      if (status == "error") {
+        error();
+      }
+    })
   }
 
   $(".accordion").click(function (event) {
     $("div.subheadings").hide();
     $(this).next().show();
     var subpage = $(this).attr("href");
-    $(".article").load(subpage);
+    $(".article").load(subpage, function (response, status, xhr) {
+      if (status == "error") {
+        error();
+      }
+    })
   });
 
   $(".link").click(function (event) {
     var subpage = $(this).attr("href");
-    $(".article").load(subpage);
+    $(".article").load(subpage, function (response, status, xhr) {
+      if (status == "error") {
+        error();
+      }
+    })
   });
 </script>
