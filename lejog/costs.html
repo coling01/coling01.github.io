@@ -91,6 +91,30 @@ Other possibles ...
   </tr>
 
   <tr>
+    <td>10/04/2017</td>
+    <td>Pound shop</td>
+    <td class="cost">33.00</td>
+  </tr>
+
+  <tr>
+    <td>10/04/2017</td>
+    <td>Poundstretcher</td>
+    <td class="cost">43.44</td>
+  </tr>
+
+  <tr>
+    <td>10/04/2017</td>
+    <td>Aldi</td>
+    <td class="cost">56.96</td>
+  </tr>
+
+  <tr>
+    <td>10/04/2017</td>
+    <td>Asda</td>
+    <td class="cost">73.70</td>
+  </tr>
+
+  <tr>
     <td>&nbsp;</td>
     <td>Total Spent To Date</td>
     <td id="totalspent"></td>
@@ -100,7 +124,8 @@ Other possibles ...
 <table id="incoming" border="1">
   <tr>
     <th>Rider</th>
-    <th>Paid</th>
+    <th>Initial</th>
+    <th>Second</th>
   </tr>
   <tr>
     <td>Colin</td>
@@ -109,6 +134,7 @@ Other possibles ...
   <tr>
     <td>Mike</td>
     <td class="moneyin">150</td>
+    <td class="moneyin">90</td>
   </tr>
   <tr>
     <td>Stu</td>
@@ -129,6 +155,7 @@ Other possibles ...
   <tr>
     <td>Seens</td>
     <td class="moneyin">150</td>
+    <td class="moneyin">90</td>
   </tr>
   <tr>
     <td>Matt</td>
@@ -153,6 +180,7 @@ Other possibles ...
   <tr>
     <td>Vin</td>
     <td class="moneyin">150</td>
+    <td class="moneyin">90</td>
   </tr>
   <tr>
     <td>Total In</td>
@@ -170,16 +198,17 @@ Other possibles ...
 
   var totalspent = 0;
   $("#spent .cost").each(function () {
-    totalspent += parseInt($(this).html());
+    totalspent += parseFloat($(this).html());
   });
-  $("#totalspent").html(totalspent);
+  $("#totalspent").html(Math.round(totalspent*100)/100);
 
-  var totalin = 0;
+  var totalin = 0.0;
   $("#incoming .moneyin").each(function () {
     var thisin = $(this).html();
     if (typeof(thisin) !== 'undefined' && thisin !== "") {
-      totalin += parseInt(thisin);
+      totalin += parseFloat(thisin);
     }
   });
-  $("#totalin").html(totalin);
+  console.log("Total in:"+totalin)
+  $("#totalin").html(Math.round(totalin*100)/100);
 </script>
