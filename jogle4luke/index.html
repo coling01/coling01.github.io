@@ -5,132 +5,57 @@
 
 <!--<h1>Index page for John O'Groats to Lands End Charity Ride</h1>-->
 
-<a href="https://www.justgiving.com/fundraising/JOGLA4Luke">Just Giving Page</a>
+<div class="nav">
+  <h1>Live tracking</h1>
 
-<h2>Fund Raising Progress</h2>
+  <table border="1">
+    <tr>
+      <th>Place</th>
+      <th>Miles</th>
+      <th>ETA</th>
+      <th>Breaks (mins)</th>
+      <th>ETD</th>
+    </tr>
+    <tr class="place">
+      <td class="town">Garstang</td>
+      <td class="miles">?</td>
+      <td class="eta">Sat 15:00</td>
+      <td class="breakmins">60</td>
+      <td class="etd">Sat 16:00</td>
+    </tr>
+    <tr class="place">
+      <td class="town">Preston</td>
+      <td class="miles">15</td>
+      <td class="eta">Sat 17:00</td>
+      <td class="breakmins">60</td>
+      <td class="etd">Sat 18:00</td>
+    </tr>
+    <tr class="place">
+      <td class="town">Alderley Edge</td>
+      <td class="miles">45</td>
+      <td class="eta">Sat 22:00</td>
+      <td class="breakmins">60</td>
+      <td class="etd">Sat 23:00</td>
+    </tr>
+  </table>
+</div>
 
-<h2>Ride progress</h2>
-<ul>
-  <li>Start time <span id="startday" value="14"></span> <span id="starthours">01</span>:<span id="startmins">30</span>
-  </li>
-  <li>
-    Miles covered <span id="milescovered">400</span>
-  </li>
-  <li>
-    Updated <span id="lastupdateday" value="15"></span> <span id="lastupdatehours">01</span>:<span
-          id="lastupdatemins">30</span>
-  </li>
-  <li>
-    Hours break <span id="breakshours">2</span>:<span id="breaksmins">30</span>
-  </li>
-  <li>
-    Hours riding <span id="ridinghours"></span>:<span id="ridingmins"></span>
-  </li>
-  <li>
-    Current average speed. <span id="averagespeed"></span> mph.
-  </li>
-</ul>
-<table border="1">
-  <tr>
-    <th>Place</th>
-    <th>Miles</th>
-    <th>ETA</th>
-    <th>Breaks (mins)</th>
-    <th>ETD</th>
-  </tr>
-  <tr class="place">
-    <td class="town">Garstang</td>
-    <td class="miles">405</td>
-    <td class="eta"></td>
-    <td class="breakmins">60</td>
-    <td class="etd"></td>
-  </tr>
-  <tr class="place">
-    <td class="town">Preston</td>
-    <td class="miles">460</td>
-    <td class="eta"></td>
-    <td class="breakmins">60</td>
-    <td class="etd"></td>
-  </tr>
-  <tr class="place">
-    <td class="town">Alderley Edge</td>
-    <td class="miles">500</td>
-    <td class="eta"></td>
-    <td class="breakmins">60</td>
-    <td class="etd"></td>
-  </tr>
-</table>
+<div class="right">
+  <iframe width="600" height="350" src="http://www.justgiving.com/fundraising/JOGLA4Luke">
+  </iframe>
 
-<h1>Live tracking</h1>
-<!-- start LocaToWeb embed code -->
-<div style='background-color:#333;'><a id='ltw_home_url' href='https://locatoweb.com'>LocaToWeb - Real time GPS tracking</a><iframe id='ltw_embed_frame' frameborder='0' style='width:100%;height:600px;border-top:1px solid #000;'></iframe></div>
-<script>var ltwtrackurl='race/6367';</script>
-<script src='//locatoweb.azureedge.net/scripts/embed-1.1.3.min.js'></script>
-<!-- end LocaToWeb embed code -->
+</div>
+<div class="bottom">
+  <!-- start LocaToWeb embed code -->
+  <div style='background-color:#333;'><a id='ltw_home_url' href='https://locatoweb.com'>LocaToWeb - Real time GPS
+    tracking</a>
+    <iframe id='ltw_embed_frame' frameborder='0' style='width:100%;height:600px;border-top:1px solid #000;'></iframe>
+  </div>
+  <script>var ltwtrackurl = 'race/6367';</script>
+  <script src='//locatoweb.azureedge.net/scripts/embed-1.1.3.min.js'></script>
+  <!-- end LocaToWeb embed code -->
+</div>
 
 <script>
-  var april = 3;
-  // Really ?? :(
-  var weekdays = new Array(7);
-  weekdays[0] = "Sun";
-  weekdays[1] = "Mon";
-  weekdays[2] = "Tues";
-  weekdays[3] = "Weds";
-  weekdays[4] = "Thurs";
-  weekdays[5] = "Fri";
-  weekdays[6] = "Sat";
 
-  // Update startday of week
-  var startday = $("#startday").attr("value");
-  var starthours = $("#starthours").html();
-  var startmins = $("#startmins").html();
-  var starttime = new Date(2017, april, startday, starthours, startmins);
-  $("#startday").html(weekdays[starttime.getDay()]);
-
-  // Update update day of week
-  var lastupdateday = $("#lastupdateday").attr("value");
-  var lastupdatehours = $("#lastupdatehours").html();
-  var lastupdatemins = $("#lastupdatemins").html();
-  var lastupdatetime = new Date(2017, april, lastupdateday, lastupdatehours, lastupdatemins);
-  $("#lastupdateday").html(weekdays[lastupdatetime.getDay()]);
-
-  console.log("last update1:" + lastupdatetime);
-
-
-  // Calculate number of riding hours is update time less starttime less breaks
-  var minsdifference = (lastupdatetime - starttime) / (60 * 1000);
-  var breakshours = $("#breakshours").html();
-  var breaksmins = $("#breaksmins").html();
-  var minsriding = minsdifference - (60 * breakshours) - breaksmins;
-  $("#ridinghours").html(parseInt(minsriding / 60));
-  $("#ridingmins").html(minsriding % 60);
-
-  // Calculate average speed
-  var milescovered = $("#milescovered").html();
-  var averagespeed = milescovered / (minsriding / 60);
-  console.log("Ridden " + milescovered + " in " + minsriding + " average:" + averagespeed);
-  $("#averagespeed").html(Math.round(averagespeed * 10) / 10)
-  var previousmiles = 0;
-  var previousetd = new Date(0);
-  var mileslefttohere = 0;
-  $("tr.place").each(function () {
-    milestohere = $(this).find(".miles").html();
-    if (mileslefttohere > 0 && previousetd.getTime() > 0) {
-      mileslefttohere = milestohere - mileslefttohere;
-      minslefttohere = mileslefttohere / (averagespeed / 60);
-      eta = new Date(previousetd.getTime() + (minslefttohere * 60 * 1000));
-    }
-    else {
-      mileslefttohere = milestohere - milescovered;
-      minslefttohere = mileslefttohere / (averagespeed / 60);
-      eta = new Date(lastupdatetime.getTime() + (minslefttohere * 60 * 1000));
-    }
-    console.log("ETA at here:" + minslefttohere + " eta:" + eta.getHours() + ":" + eta.getMinutes());
-    $(this).find(".eta").html(eta.getHours() + ":" + eta.getMinutes());
-    var breakmins = $(this).find(".breakmins").html();
-    var etd = new Date(eta.getTime() + (breakmins * 60 * 1000));
-    console.log("ETD:" + etd)
-    $(this).find(".etd").html(etd.getHours() + ":" + etd.getMinutes());
-    previousetd = etd;
-  });
 </script>
