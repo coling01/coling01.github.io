@@ -61,6 +61,13 @@
   </tr>
 </table>
 
+<h1>Live tracking</h1>
+<!-- start LocaToWeb embed code -->
+<div style='background-color:#333;'><a id='ltw_home_url' href='https://locatoweb.com'>LocaToWeb - Real time GPS tracking</a><iframe id='ltw_embed_frame' frameborder='0' style='width:100%;height:600px;border-top:1px solid #000;'></iframe></div>
+<script>var ltwtrackurl='race/6367';</script>
+<script src='//locatoweb.azureedge.net/scripts/embed-1.1.3.min.js'></script>
+<!-- end LocaToWeb embed code -->
+
 <script>
   var april = 3;
   // Really ?? :(
@@ -105,15 +112,15 @@
   $("#averagespeed").html(Math.round(averagespeed * 10) / 10)
   var previousmiles = 0;
   var previousetd = new Date(0);
-  var mileslefttohere=0;
+  var mileslefttohere = 0;
   $("tr.place").each(function () {
     milestohere = $(this).find(".miles").html();
-    if(mileslefttohere>0 && previousetd.getTime()>0){
+    if (mileslefttohere > 0 && previousetd.getTime() > 0) {
       mileslefttohere = milestohere - mileslefttohere;
       minslefttohere = mileslefttohere / (averagespeed / 60);
       eta = new Date(previousetd.getTime() + (minslefttohere * 60 * 1000));
     }
-    else{
+    else {
       mileslefttohere = milestohere - milescovered;
       minslefttohere = mileslefttohere / (averagespeed / 60);
       eta = new Date(lastupdatetime.getTime() + (minslefttohere * 60 * 1000));
@@ -122,8 +129,8 @@
     $(this).find(".eta").html(eta.getHours() + ":" + eta.getMinutes());
     var breakmins = $(this).find(".breakmins").html();
     var etd = new Date(eta.getTime() + (breakmins * 60 * 1000));
-    console.log("ETD:"+etd)
+    console.log("ETD:" + etd)
     $(this).find(".etd").html(etd.getHours() + ":" + etd.getMinutes());
-    previousetd=etd;
+    previousetd = etd;
   });
 </script>
