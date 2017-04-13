@@ -32,7 +32,7 @@
     <div class="link" href="new/direction.html">Direction ... JOGLE confirmed</div>
     <div class="link" href="new/routetimings.html">Route Distances</div>
     <div class="link" href="new/speed.html">Speed</div>
-    <div class="link" href="new/rota.html">Rota</div>
+    <div class="link" href="new/rota-mediumnobreak.html">Rota</div>
   </div>
 
   <h2 class="accordion" href="new/route.html">Misc</h2>
@@ -134,10 +134,17 @@
 
   $(".link").click(function (event) {
     var subpage = $(this).attr("href");
-    $(".article").load(subpage, function (response, status, xhr) {
-      if (status == "error") {
-        error();
-      }
-    })
+    console.log("Loading subpage:"+subpage)
+    if (subpage.indexOf("rota-") > 0) {
+      console.log("Full page reload")
+      document.location.href = subpage;
+    }
+    else{
+      $(".article").load(subpage, function (response, status, xhr) {
+        if (status == "error") {
+          error();
+        }
+      })
+    }
   });
 </script>
