@@ -1,0 +1,84 @@
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <script src="jq.js"></script>
+</head>
+<div id="wait"
+     style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;top:50%;left:50%;padding:2px;">
+  <img src='demo_wait.gif' width="64" height="64"/><br>Loading..
+</div>
+<div class="nav">
+  <h2 class="accordion" href="new/teams.html">Teams</h2>
+  <div class="subheadings">
+    <div class="link" href="new/sky.html">Sky</div>
+    <div class="link" href="new/astana.html"></div>
+    <div class="link" href="new/riders.html">Riders</div>
+  </div>
+</div>
+<div class="article">
+</div>
+
+<script>
+  function error(){
+    $(".article").load("new/wip.html");
+  }
+
+  $.ajaxSetup({
+    cache: false
+  });
+  $("div.subheadings").hide();
+
+  var subpage = window.location.search.substring(1);
+  console.log("Loading subpage:" + subpage)
+  if (subpage == "") {
+    console.log("article load1")
+    $(".article")
+    //            .load("overview.html")
+    //            .error(function(){
+    //               alert("error loading page");
+    //            });
+            .load("teams.html", function (response, status, xhr) {
+              if (status == "error") {
+                error();
+              }
+            })
+  }
+  else if (subpage.indexOf("rota-") == 0) {
+    console.log("page change to:" + subpage)
+    document.location.href = subpage;
+  }
+  else {
+    console.log("article load2:" + subpage)
+    $(".article").load(subpage, function (response, status, xhr) {
+      if (status == "error") {
+        error();
+      }
+    })
+  }
+
+  $(".accordion").click(function (event) {
+    $("div.subheadings").hide();
+    $(this).next().show();
+    var subpage = $(this).attr("href");
+    $(".article").load(subpage, function (response, status, xhr) {
+      if (status == "error") {
+        error();
+      }
+    })
+  });
+
+  $(".link").click(function (event) {
+    var subpage = $(this).attr("href");
+    console.log("Loading subpage:"+subpage)
+    if (subpage.indexOf("rota-") > 0) {
+      console.log("Full page reload")
+      document.location.href = subpage;
+    }
+    else{
+      $(".article").load(subpage, function (response, status, xhr) {
+        if (status == "error") {
+          error();
+        }
+      })
+    }
+  });
+</script>
