@@ -24,7 +24,7 @@
       </tr>
     </table>
   <div></div>
-  <hidden id="selected" value="xxx"></hidden>  
+  <hidden id="selected" value="xxx"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
     function oldcopy() {
@@ -38,7 +38,7 @@
         const val=$(this).val();
         console.log("Clicked"+val);
         $("#selected").val(val);
-        const copyText = document.querySelector("#selected");
+        let copyText = document.querySelector("#selected");
         copyText.select();
         document.execCommand("copy");
         alert("copied");
