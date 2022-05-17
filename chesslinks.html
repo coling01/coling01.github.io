@@ -5,7 +5,7 @@
       <tr>
         <td>Is Em</td>
         <td>5k2/p7/1p6/1n6/6p1/8/P7/3QK3 b - - 0 1</td>
-        <td><button onclick="copy()">Copy FEN</button></td>
+        <td><button>Copy FEN</button></td>
       </tr>
       <tr>
         <td>Am Ann</td>
@@ -15,18 +15,14 @@
       <tr>
         <td>Ann Mon</td>
         <td>r4k2/ppp4r/2bpp2p/4p3/3Pn3/PPP1b1P1/1N6/R2QK1N1 w Q - 0 1</td>
-        <td><button onclick="copy()">Copy FEN</button></td>
+        <td><button>Copy FEN</button></td>
       </tr>
       <tr>
         <td>Sal Sam</td>
         <td>2b3k1/p1pp1ppp/1p6/4q3/7n/1P6/P1P1K3/2R2N2 w - - 0 1</td>
-        <td><button onclick="copy()">Copy FEN</button></td>
+        <td><button>Copy FEN</button></td>
       </tr>
     </table>
-  <div>
-    <input type="text" value="2k1q1r1/3p4/p3n3/3Np2p/7P/3r1p2/K7/6Q1 w - - 0 1" id="input1">
-    Position FEN<span>2k1q1r1/3p4/p3n3/3Np2p/7P/3r1p2/K7/6Q1 w - - 0 1</span>
-  </div>
   <div></div>
   <button onclick="copy()">Copy FEN</button>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -38,8 +34,8 @@
       alert("copied");
     }
     $(document).ready(function(){
-      $("button").bind("click", function(){
-        alert("The button was clicked.");
+      $("button").bind("click", function(this){
+        console.log("Clicked"+$(this).val());
       });
     });
   </script>
