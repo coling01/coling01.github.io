@@ -6,7 +6,7 @@ Pages are published to
 https://coling01.github.io/<reponame>/
   
 i.e.
- https://coling01.github.io/chesslinks.html
+  <a href="https://coling01.github.io/chesslinks.html"></a>
   
   
   
