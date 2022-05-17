@@ -24,7 +24,6 @@
       </tr>
     </table>
   <div></div>
-  <button onclick="copy()">Copy FEN</button>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
     function copy() {
@@ -34,7 +33,7 @@
       alert("copied");
     }
     $(document).ready(function(){
-      $("button").bind("click", function(this){
+      $("button").bind("click", function(){
         console.log("Clicked"+$(this).val());
       });
     });
