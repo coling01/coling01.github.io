@@ -1,13 +1,4 @@
-<script>
-  function copyFunction() {
-    var copyText = document.getElementById("myInput");
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); 
-    navigator.clipboard.writeText(copyText.value);
 
-    alert("Copied the text: " + copyText.value);
-}
-</script>
 <html>
   <body>
   <div>
@@ -18,5 +9,17 @@
     <span id="myInput>2k1q1r1/3p4/p3n3/3Np2p/7P/3r1p2/K7/6Q1 w - - 0 1</span>
   </div>
   <button onclick="copyFunction()">Copy text</button>
-  </body>
+
+                                  
+ <script>
+  function copyFunction() {
+    var copyText = document.getElementById("myInput");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); 
+    navigator.clipboard.writeText(copyText.value);
+
+    alert("Copied the text: " + copyText.value);
+}
+</script>
+                               </body>
 </html>
