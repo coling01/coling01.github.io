@@ -29,6 +29,7 @@
   </div>
   <div></div>
   <button onclick="copy()">Copy FEN</button>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
     function copy() {
       let copyText = document.querySelector("#input1");
@@ -36,6 +37,11 @@
       document.execCommand("copy");
       alert("copied");
     }
+    $(document).ready(function(){
+      $("button").bind("click", function(){
+        alert("The button was clicked.");
+      });
+    });
   </script>
   </body>
 </html>
