@@ -3,30 +3,30 @@
   <body>
     <table>
       <tr>
+        <td>17-05-2022</td>
         <td>Is Em</td>
-        <td>5k2/p7/1p6/1n6/6p1/8/P7/3QK3 b - - 0 1</td>
-        <td><button>Copy FEN</button></td>
+        <td><button value="5k2/p7/1p6/1n6/6p1/8/P7/3QK3 b - - 0 1">Copy FEN</button></td>
       </tr>
       <tr>
+        <td>17-05-2022</td>
         <td>Am Ann</td>
-        <td>2k1q1r1/3p4/p3n3/3Np2p/7P/3r1p2/K7/6Q1 w - - 0 1</td>
-        <td><button onclick="copy()">Copy FEN</button></td>
+        <td><button value="2k1q1r1/3p4/p3n3/3Np2p/7P/3r1p2/K7/6Q1 w - - 0 1" onclick="copy()">Copy FEN</button></td>
       </tr>
       <tr>
+        <td>10-05-2022</td>
         <td>Ann Mon</td>
-        <td>r4k2/ppp4r/2bpp2p/4p3/3Pn3/PPP1b1P1/1N6/R2QK1N1 w Q - 0 1</td>
-        <td><button>Copy FEN</button></td>
+        <td><button value="r4k2/ppp4r/2bpp2p/4p3/3Pn3/PPP1b1P1/1N6/R2QK1N1 w Q - 0 1">Copy FEN</button></td>
       </tr>
       <tr>
+        <td>10-05-2022</td>
         <td>Sal Sam</td>
-        <td>2b3k1/p1pp1ppp/1p6/4q3/7n/1P6/P1P1K3/2R2N2 w - - 0 1</td>
-        <td><button>Copy FEN</button></td>
+        <td><button value="2b3k1/p1pp1ppp/1p6/4q3/7n/1P6/P1P1K3/2R2N2 w - - 0 1">Copy FEN</button></td>
       </tr>
     </table>
   <div></div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
-    function copy() {
+    function oldcopy() {
       let copyText = document.querySelector("#input1");
       copyText.select();
       document.execCommand("copy");
@@ -35,6 +35,9 @@
     $(document).ready(function(){
       $("button").bind("click", function(){
         console.log("Clicked"+$(this).val());
+        const copyText = document.querySelector(this);
+        copyText.select();
+        document.execCommand("copy");
       });
     });
   </script>
