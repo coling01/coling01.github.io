@@ -1,25 +1,45 @@
-# Tips
+# Top Tips
 
-1) In the opening, move 1 or 2 central pawns to release your Bishops and Queen
 
-4) Get your Knights and Bishops out early
+# General
+G1) ALWAYS Look to see if you can take any of your opponents pieces
 
-3) Castle to get your King safe and Rooks to the middle
+G2) ALWAYS Look to see if your opponent can take any of your pieces
 
-4) ALWAYS Look to see if you can take any of your opponents pieces
 
-5) ALWAYS Look to see if your opponent can take any of your pieces
+# Opening Game
 
-6) Take extra care with your Queen
+O1) Move 1 or 2 central pawns to release your Bishops and Queen
 
-7) Make your pieces to work together i.e. Attack an enemy piece with more attackers than defenders
+O2) Get your Knights and Bishops out early
 
-8) Make your pieces work together i.e. Get close to the enemy King with Queen protected by another piece
+O3) Castle to get your King safe and Rooks to the middle
 
-9) If you ahead then swap pieces to simplify
+O4) Take extra care with your Queen
 
-10) When ahead, swap pieces to simplify the board and increase your advantage
 
-11) Keep some pawns to allow promotion to a Queen 
 
-12) Use 2 Rooks / Queens to sweep the enemy King to the edge for an easy checkmate  
+# Middle Game
+
+M1) Make your pieces to work together i.e. Attack an enemy piece with more attackers than defenders
+
+M2) Look at your opponents move before you make yours
+
+M3) Remember piece value when swapping pieces Pawn 1, Knight Bishop 3, Rook 5, Queen 9
+
+M4) When ahead, swap pieces to simplify the board and increase your advantage
+
+M5) If cannot think what to do, attack an enemy piece with 
+
+M6) Remember Forks, Pins, Skewers, Revealed Attacks
+
+
+# End Game
+E1) If a Pawn has an open route to the other side, defend it ( Rook behind ? ) and push it
+
+E2) Keep some pawns to allow promotion to a Queen 
+
+E3) Make your pieces work together i.e. Get close to the enemy King with Queen protected by another piece
+
+E4) Use 2 Rooks / Queens to sweep the enemy King to the edge for an easy checkmate  
+
