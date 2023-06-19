@@ -10,7 +10,7 @@ https://coling01.github.io/<reponame>/
 [i.e. chesslinks.md](https://coling01.github.io/chesslinks.md)
 
 Some more info to come
-[Tips](https://coling01.github.io/tips.html)
+[Tips](https://coling01.github.io/tips.md)
   
   
   
