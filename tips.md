@@ -29,7 +29,7 @@ M3) Remember piece value when swapping pieces Pawn 1, Knight Bishop 3, Rook 5, Q
 
 M4) When ahead, swap pieces to simplify the board and increase your advantage
 
-M5) If cannot think what to do, attack an enemy piece with 
+M5) If cannot think what to do, attack an enemy piece with a minor piece or even a pawn
 
 M6) Remember Forks, Pins, Skewers, Revealed Attacks
 
