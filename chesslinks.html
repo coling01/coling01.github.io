@@ -1,89 +1,16 @@
-
 <html>
-  <body>
-    <table>
-      <tr>
-	<td>Capturing pieces</td>
-        <td><a href="https://www.chess.com/lessons/capturing-pieces/value-of-the-pieces">Chess.com piece value</a></td>
-      </tr>	
-      <tr>
-	<td>Capturing pieces</td>
-        <td><a href="https://www.chess.com/lessons/capturing-pieces/forks">Chess.com Forks</a></td>
-      </tr>	
-      <tr>
-	<td>Capturing pieces</td>
-        <td><a href="https://www.chess.com/lessons/capturing-pieces/pins">Chess.com Pins</a></td>
-      </tr>	
-      <tr>
-        <td>Capturing pieces</td>
-        <td><a href="https://www.chess.com/lessons/capturing-pieces/skewers">Chess.com Skewers</a></td>
-      </tr>	
-      <tr>
-        <td>Capturing pieces</td>
-        <td><a href="https://www.chess.com/lessons/capturing-pieces/avoiding-bad-trades">Chess.com Bad trades</a></td>
-      </tr>	
-      <tr>
-        <td>Opening principles</td>
-        <td><a href="https://www.chess.com/lessons/opening-principles/your-opponents-move">Chess.com Opponents move</a></td>
-      </tr>	
-      <tr>
-        <td>Making the most of your pieces</td>
-        <td><a href="https://www.chess.com/lessons/make-the-most-of-your-pieces/pieces-working-together">Chess.com Pieces working together</a></td>
-      </tr>	
-      <tr>
-        <td>Winning the game</td>
-        <td><a href="https://www.chess.com/lessons/winning-the-game/checkmate-with-two-rooks">Chess.com Winning with Two Rooks</a></td>
-      </tr>	
-      <tr>
-        <td>Winning the game</td>
-        <td><a href="https://www.chess.com/lessons/winning-the-game/checkmate-with-the-queen">Chess.com Winning with Queen and King</a></td>
-      </tr>	
-      <tr>
-        <td>Winning the game</td>
-        <td><a href="https://www.chess.com/lessons/winning-the-game/checkmate-with-the-rook">Chess.com Winning with Rook and King</a></td>
-      </tr>	
-      <tr>
-        <td>Reveal tips</td>
-        <td><a href="./Powerpoints/ChessTipsReveals.pptx">Revealed Tips</a></td>
-      </tr>
-      <tr>
-        <td>Powerpoints</td>
-        <td><a href="./Powerpoints/RevealedAttack.pptx">Revealed attack</a></td>
-      </tr>
-      <tr>
-        <td>Powerpoints</td>
-        <td><a href="./Powerpoints/Castling.pptx">Castling</a></td>
-      </tr>
-      <tr>
-        <td>Powerpoints</td>
-        <td><a href="./Powerpoints/Checkmates.pptx">Checkmates</a></td>
-      </tr>
-      <tr>
-        <td>Powerpoints</td>
-        <td><a href="./Powerpoints/ChessForks.pptx">Forks</a></td>
-      </tr>
-      <tr>
-        <td>Powerpoints</td>
-        <td><a href="./Powerpoints/ChessPins.pptx">Pins</a></td>
-      </tr>
-      <tr>
-        <td>Powerpoints</td>
-        <td><a href="./Powerpoints/Skewers.pptx">Skewers</a></td>
-      </tr>
-    </table>
-  <div></div>
-  <input id="selected" value=""/>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      $("button").bind("click", function(){
-        const val=$(this).val();
-        $("#selected").val(val);
-        const copyText = document.querySelector("#selected");
-        copyText.select();
-        document.execCommand("copy");
-      });
-    });
-  </script>
-  </body>
+<body>
+<h1>
+    Tips for juniors to improve their chess
+</h1>
+<ol>
+    <div>1 Work through the lessons and challenges on chess.com
+        <span><a href="./chesslessons.html">Links for selected chess.com lessons</a></span>
+    </div>
+
+    <div>2 Play against a computer such as chess.com</div>
+    <div>3 Play chess puzzles such as lichess.com</div>
+    <div>4 Play in tournaments and reflect on lost games</div>
+</ol>
+</body>
 </html>
